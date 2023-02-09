@@ -7,8 +7,21 @@ Return k after placing the final result in the first k slots of nums.
 
 class Solution {
 public:
-    int removeElement(std::vector<int>& nums, int val) {
-        nums.erase(std::remove(nums.begin(), nums.end(), val), nums.end());
-        return int(nums.size());
+    int removeElement(vector<int>& nums, int val) {
+        vector<int> :: iterator itr;
+        itr = nums.begin();
+        for(int i = 0; i < nums.size(); i++)
+        {
+            if(nums[i] == val)
+            {
+                nums.erase(itr);
+                itr--;
+                i--;
+            }
+            itr++;
+        }
+        return nums.size();
+        
     }
 };
+// 0 ms code B-)
